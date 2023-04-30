@@ -4,4 +4,5 @@ This is a simple chat app built with svelte and socket.io. It is a simple app th
 
 ## Tutorial
 
+-   Followed this tutorial an youtube:
 -   https://www.youtube.com/watch?v=f5Mbd4txon4
