@@ -18,20 +18,27 @@ const io = new Server<
     socket_data
 >(server)
 
+// user list
+
+let users: user[] = []
+
 // handle user connections
 io.on('connection', (socket) => {
     socket.on('login', (name) => {
         socket.data.name = name
+        users.push({ id: socket.id, name })
+        io.emit('users', users)
         socket.emit('message', { text: `Welcome to the chat, ${name}`, bot: true })
         io.emit('message', { text: `${name} has joined the chat`, bot: true })
     })
 
     socket.on('message', (msg) => {
-        console.log('got a new message', msg)
         io.emit('message', msg)
     })
 
     socket.on('disconnect', () => {
+        users = users.filter((u) => u.id !== socket.id)
+        io.emit('users', users)
         io.emit('message', { text: `${socket.data.name} has left the chat`, bot: true })
     })
 })
