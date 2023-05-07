@@ -5,6 +5,10 @@
     import Chat from '@/lib/Chat.svelte'
 </script>
 
+<svelte:head>
+    <title>Svelte ChatAPP</title>
+</svelte:head>
+
 <Header />
 {#if $name}
     <Chat />
