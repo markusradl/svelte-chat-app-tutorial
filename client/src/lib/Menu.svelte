@@ -1,12 +1,11 @@
 <script lang="ts">
     import { reload_page } from '@/utils'
-
-    export let show_users: boolean = false
+    import { show_users } from '@/stores'
 </script>
 
 <menu>
-    <button on:click={() => (show_users = !show_users)}>
-        {#if show_users}
+    <button on:click={() => ($show_users = !$show_users)}>
+        {#if $show_users}
             Show Chat
         {:else}
             Show Users

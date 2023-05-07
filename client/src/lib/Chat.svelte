@@ -3,15 +3,13 @@
     import Messages from '@/lib/Messages.svelte'
     import SendForm from '@/lib/SendForm.svelte'
     import { reload_page } from '@/utils'
-    import { name } from '@/stores'
+    import { name, users, show_users } from '@/stores'
     import { onMount } from 'svelte'
     import Users from '@/lib/Users.svelte'
     import Menu from '@/lib/Menu.svelte'
 
     let my_message_text = ''
     let messages: message[] = []
-    let users: user[] = []
-    let show_users: boolean = false
 
     const socket: Socket<server_to_client_events, client_to_server_events> = io()
 
@@ -24,7 +22,7 @@
     })
 
     socket.on('users', (_users) => {
-        users = _users
+        $users = _users
     })
 
     socket.on('disconnect', reload_page)
@@ -35,10 +33,10 @@
     }
 </script>
 
-<Menu bind:show_users />
+<Menu />
 
-{#if show_users}
-    <Users {users} />
+{#if $show_users}
+    <Users />
 {:else}
     <Messages {messages} />
 
