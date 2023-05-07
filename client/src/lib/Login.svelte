@@ -7,8 +7,10 @@
     }
 </script>
 
-<form on:submit|preventDefault={handle_login}>
-    <label for="login_name">Choose a name</label>
-    <input type="text" id="login_name" bind:value={name_input} required />
-    <button>Start chat</button>
-</form>
+<section aria-label="login">
+    <form on:submit|preventDefault={handle_login}>
+        <label for="login_name">Choose a name</label>
+        <input type="text" id="login_name" bind:value={name_input} required />
+        <button>Start chat</button>
+    </form>
+</section>

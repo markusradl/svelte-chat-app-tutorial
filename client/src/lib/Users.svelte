@@ -2,7 +2,11 @@
     import { users } from '@/stores'
 </script>
 
-<h2>Users</h2>
-{#each $users as user}
-    <p>{user.name}</p>
-{/each}
+<section>
+    <h2>Users</h2>
+    <ul>
+        {#each $users as user}
+            <li>{user.name}</li>
+        {/each}
+    </ul>
+</section>
