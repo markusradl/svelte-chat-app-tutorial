@@ -14,3 +14,14 @@
 
     <button on:click={reload_page}> Logout </button>
 </menu>
+
+<style>
+    menu {
+        padding: 0.75rem;
+        gap: 0.5rem;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        border-bottom: 0.1rem solid var(--separator-color);
+    }
+</style>
