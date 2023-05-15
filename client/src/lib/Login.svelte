@@ -16,13 +16,14 @@
 </section>
 
 <style lang="scss">
+    @use '../scss/breakpoints' as *; // Alles aus einer partial scss Datei importieren "_breakpoints.scss". _ am Anfang des Dateinamens ist wichtig, damit die Datei nicht kompiliert wird.
     form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
         align-items: center;
         padding: 1rem;
-        @media (min-width: 30em) {
+        @media (min-width: $md) {
             flex-direction: row;
         }
     }

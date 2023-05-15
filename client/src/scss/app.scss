@@ -23,6 +23,8 @@ body {
     background-color: var(--bg-color-1);
     color: var(--font-color);
     height: 100vh;
+    display: grid;
+    grid-template-rows: auto auto 1fr auto;
 }
 
 // input and button reset
