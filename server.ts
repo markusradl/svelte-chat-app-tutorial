@@ -26,7 +26,7 @@ let users: user[] = []
 io.on('connection', (socket) => {
     socket.on('login', (name) => {
         socket.data.name = name
-        users.push({ id: socket.id, name })
+        users = [{ id: socket.id, name }, ...users]
         io.emit('users', users)
         socket.emit('message', { text: `Welcome to the chat, ${name}`, bot: true })
         io.emit('message', { text: `${name} has joined the chat`, bot: true })
